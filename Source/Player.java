@@ -101,7 +101,7 @@ public class Player {
  public void shootBullet() {
    if(visible) {
      bullet1.x = this.x + 6;
-     bullet1.y = this.y - 16;
+     bullet1.y = this.y - 10;
      bullet1.counter = 0;
    }
  }

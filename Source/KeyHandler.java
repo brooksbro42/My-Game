@@ -26,7 +26,12 @@ public class KeyHandler {
          Coin.coinArray[i].reset();
        }
      }
-    }
+      if(Enemy.enemyCount != -1) {
+       for(int i = Enemy.enemyCount; i >= 0; i--) {
+         Enemy.enemyArray[i].visible = true;
+       }
+     }
+  }
     else if(key == 119) { 
       GameThread.player2.moveUp();
     }
@@ -46,27 +51,15 @@ public class KeyHandler {
       GameThread.player2.shootBullet();
     }
     else if(key == 49) {
+      handle(114);
       GameThread.player2.visible = false;
-      GameThread.player.visible = true;
-      GameThread.player.reset();
-      if(Coin.coinCount != -1) {
-       for(int i = Coin.coinCount; i >= 0; i--) {
-         Coin.coinArray[i].reset();
-       }
-      }
     }
     else if(key == 50) {
-      GameThread.player2.reset();
-      GameThread.player.reset();
-      if(Coin.coinCount != -1) {
-       for(int i = Coin.coinCount; i >= 0; i--) {
-         Coin.coinArray[i].reset();
-       }
-      }
+      handle(114);
       GameThread.player2.visible = true;
     }
     else if(key == 104) {
       HelpScreen.visible = !HelpScreen.visible;
     }
   }
-}
+ }

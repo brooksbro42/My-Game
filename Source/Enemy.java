@@ -40,12 +40,12 @@ public class Enemy {
       g.fillOval(x,y,20,20);
       if(counterlol % 5 == 0) {
         if(flipFlop == true) { //tempstart
-          y = y-10;
-          if(y==180) {flipFlop = !flipFlop;}
+          x = x-10;
+          if(x==180) {flipFlop = !flipFlop;}
         }
         else {
-          y = y+10;
-          if(y == 220) {flipFlop = !flipFlop;}
+          x = x+10;
+          if(x == 220) {flipFlop = !flipFlop;}
         } 
       } //tempend
     }
