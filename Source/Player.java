@@ -99,7 +99,9 @@ public class Player {
    coins = 0;
  }
  public void shootBullet() {
-   if(visible) {
+   if(visible && bullet1.bulletShot == false) {
+     bullet1.visible = true;
+     bullet1.bulletShot = true;
      bullet1.x = this.x + 6;
      bullet1.y = this.y - 10;
      bullet1.counter = 0;
