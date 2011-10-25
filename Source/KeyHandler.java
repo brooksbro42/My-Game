@@ -23,7 +23,7 @@ public class KeyHandler {
       GameThread.player2.reset();
       if(Coin.coinCount != -1) {
        for(int i = Coin.coinCount; i >= 0; i--) {
-         Coin.coinArray[i].reset();
+         Level.coinArray[i].reset();
        }
      }
       if(Enemy.enemyCount != -1) {

@@ -14,17 +14,9 @@ public class GameThread extends Applet implements Runnable {
     height = getSize().height;
     offscreenImage = createImage(width,height);
     offscr = offscreenImage.getGraphics();
-    player = new Player(50,50,Color.cyan,true);
-    player2 = new Player(30, 70,Color.red,false);
-    Coin.coinArray[0] = new Coin(100,100);
-    Coin.coinArray[1] = new Coin(160,80);
-    Coin.coinArray[2] = new Coin(120,110);
-    Coin.coinArray[3] = new Coin(250,30);
-    WallBlock.wallArray[0] = new WallBlock(250,220);
-    WallBlock.wallArray[1] = new WallBlock(250,270);
-    WallBlock.wallArray[2] = new WallBlock(230,270);
-    WallBlock.wallArray[3] = new WallBlock(180,270);
-    WallBlock.wallArray[4] = new WallBlock(230,250);
+    player = new Player(0,0,Color.cyan,true);
+    player2 = new Player(0, 40,Color.red,false);
+    Level.init();
     Enemy.enemyArray[0] = new Enemy(Color.green,200,200);
     keyhandler = new KeyHandler(this);
     t.start();
@@ -53,7 +45,7 @@ public class GameThread extends Applet implements Runnable {
     }
     WallBlock.drawWalls(offscr);
     offscr.setColor(Color.yellow);
-    offscr.drawString("v0.3.1",2,11);
+    offscr.drawString("v0.3.1_1",2,11);
     Enemy.drawEnemies(offscr);
     HelpScreen.draw(offscr);
     g.drawImage(offscreenImage,0,0,this);
