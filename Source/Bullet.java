@@ -13,6 +13,7 @@ public class Bullet {
   public void draw(Graphics g) {
     if(visible) {
       checkBulletHit(this);
+      checkBulletWall(this);
       if(counter == 0) {
         g.setColor(Color.orange);
         g.fillRect(startX,startY,8,16);
@@ -39,6 +40,18 @@ public class Bullet {
                b.visible = false;
                b.bulletShot = false;
              }
+           }
+         }
+       }
+     }
+  }
+  public void checkBulletWall(Bullet b) {
+    if(WallBlock.wallCount != -1) {
+       for(int i = WallBlock.wallCount; i >= 0; i--) {
+         if(b.x == Level.wallArray[i].x+6 || b.x == Level.wallArray[i].x+16 || b.x == Level.wallArray[i].x-4) {
+           if(b.y == Level.wallArray[i].y+10 || b.y == Level.wallArray[i].y+5) {
+             b.visible = false;
+             b.bulletShot = false;
            }
          }
        }

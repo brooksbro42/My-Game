@@ -45,7 +45,7 @@ public class GameThread extends Applet implements Runnable {
     }
     WallBlock.drawWalls(offscr);
     offscr.setColor(Color.yellow);
-    offscr.drawString("v0.3.1_1",2,11);
+    offscr.drawString("v0.3.2",2,11);
     Enemy.drawEnemies(offscr);
     HelpScreen.draw(offscr);
     g.drawImage(offscreenImage,0,0,this);
