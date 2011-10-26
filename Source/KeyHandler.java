@@ -31,6 +31,8 @@ public class KeyHandler {
          Enemy.enemyArray[i].visible = true;
        }
      }
+     Key.reset();
+     LockedDoor.reset();
   }
     else if(key == 119) { 
       GameThread.player2.moveUp();
