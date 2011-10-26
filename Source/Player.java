@@ -3,7 +3,7 @@ import java.applet.*;
 public class Player {
  private final int WIDTH = 20;
  private final int HEIGHT = 20;
- public int x, y, startX, startY, lastMovement,coins;
+ public int x, y, startX, startY, lastMovement,coins,greenKeys;
  public boolean visible = false;
  private Bullet bullet1, bullet2, bullet3;
  Color color;
@@ -17,6 +17,7 @@ public class Player {
    bullet1 = new Bullet(500,500,4);
  }
  public void draw(Graphics g) {
+   Key.checkPlayerHit(this);
    if(visible) {
      g.setColor(this.color);
      g.fillRect(x,y,WIDTH,HEIGHT);
@@ -38,7 +39,7 @@ public class Player {
      if(y < 0) {
        y = 0;
      }
-     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true) {
+     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true || LockedDoor.playerHitDoor(x,y,this) == true) {
        x = xt;
        y = yt;
      }
@@ -54,7 +55,7 @@ public class Player {
      if(y > 280) {
        y = 280;
      }
-     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true) {
+     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true|| LockedDoor.playerHitDoor(x,y,this)) {
        x = xt;
        y = yt;
      }
@@ -70,7 +71,7 @@ public class Player {
      if(x < 0) {
        x = 0;
      }
-     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true) {
+     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true|| LockedDoor.playerHitDoor(x,y,this)) {
        x = xt;
        y = yt;
      }
@@ -86,7 +87,7 @@ public class Player {
      if(x > 380) {
        x = 380;
      }
-     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true) {
+     if(checkPlayerHit() == true || Enemy.checkEnemyHit(this) == true || LockedDoor.playerHitDoor(x,y,this) == true) {
        x = xt;
        y = yt;
      }
@@ -97,6 +98,7 @@ public class Player {
    x = startX;
    y = startY;
    coins = 0;
+   greenKeys = 0;
  }
  public void shootBullet() {
    if(visible && bullet1.bulletShot == false) {
@@ -122,5 +124,15 @@ public class Player {
      }
    }
    return false;
+ }
+ public void giveKey(Color col) {
+   if(col == Color.green) {
+     greenKeys++;
+   }
+ }
+ public void takeKey(Color col) {
+   if(col == Color.green) {
+     greenKeys--;
+   }
  }
 }

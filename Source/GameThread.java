@@ -16,7 +16,7 @@ public class GameThread extends Applet implements Runnable {
     offscr = offscreenImage.getGraphics();
     player = new Player(0,0,Color.cyan,true);
     player2 = new Player(0, 40,Color.red,false);
-    Level.init();
+    Level.init(1);
     Enemy.enemyArray[0] = new Enemy(Color.green,200,200);
     keyhandler = new KeyHandler(this);
     t.start();
@@ -43,9 +43,11 @@ public class GameThread extends Applet implements Runnable {
     if(player2.visible == true) {
       offscr.drawString("P2 Coins: "+player2.coins, 300,270);
     }
+    Key.drawKeys(offscr);
+    LockedDoor.drawDoors(offscr);
     WallBlock.drawWalls(offscr);
     offscr.setColor(Color.yellow);
-    offscr.drawString("v0.3.2",2,11);
+    offscr.drawString("v0.3.3",2,11);
     Enemy.drawEnemies(offscr);
     HelpScreen.draw(offscr);
     g.drawImage(offscreenImage,0,0,this);
