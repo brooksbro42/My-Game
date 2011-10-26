@@ -13,7 +13,8 @@ public class Bullet {
   public void draw(Graphics g) {
     if(visible) {
       checkBulletHit(this);
-      checkBulletWall(this);
+      
+      if(x!=500){checkBulletWall(this);}
       if(counter == 0) {
         g.setColor(Color.orange);
         g.fillRect(startX,startY,8,16);
