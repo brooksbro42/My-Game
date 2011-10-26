@@ -29,6 +29,10 @@ public class Player {
    if(Enemy.checkEnemyHit(this) == true) {
      this.visible = false;
    }
+   if(greenKeys > 0) {
+     g.setColor(Color.green);
+     g.fillRect(x+7,y+3,10,10);
+   }
  }
  public void moveUp() {
    if(WallBlock.hitWall(x,y-10) == false && visible) {
